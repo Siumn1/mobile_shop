@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-import 'main_screen.dart'; // Добавьте эту строку
+import 'package:get/get.dart';
+
+import 'app/views/home/home_view.dart';
+import 'app/views/auth/auth_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,18 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Магазин одежды',
+    return GetMaterialApp(
+      title: 'Ашан',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Montserrat",
 
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.white,
-          brightness: Brightness.light,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home:  MainScreen(), // Изменили на MainScreen
+      home: AuthView(),
     );
   }
 }

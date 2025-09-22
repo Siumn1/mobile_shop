@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<HomeView> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<HomeView> {
   // Контроллер для текстового поля поиска
   final TextEditingController _searchController = TextEditingController();
 
@@ -43,8 +43,8 @@ class _MainScreenState extends State<MainScreen> {
               borderRadius: BorderRadius.circular(30),
               color: Color(0xFFE7DDD6),
               image: DecorationImage(
-                image: AssetImage('assets/images/cool_people/yellow_man.jpg'),
-                fit: BoxFit.cover, // Растягивает на весь контейнер
+                image: AssetImage('assets/images/ashan_thing/yellow_man.jpg'),
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -149,6 +149,4 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
-
-  // Метод для создания Search Bar
 }
