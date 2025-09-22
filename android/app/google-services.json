@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "29655497311",
+    "project_id": "pl-forgive-me",
+    "storage_bucket": "pl-forgive-me.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29655497311:android:c5baee6115bbe33ff3b9ea",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_test_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrdVMp0wtWlKrB9JOI0I3D-G4m15qOrto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
