@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   get:
+  cloud_firestore:
   flutter:
     sdk: flutter
 
@@ -66,7 +67,6 @@ flutter:
 
   assets:
     - assets/images/ashan_things/
-    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -87,7 +87,13 @@ flutter:
         - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
         - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
         - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
-
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto/ROBOTOMONO-BOLD.TTF
+        - asset: assets/fonts/Roboto/ROBOTOMONO-EXTRALIGHT.TTF
+        - asset: assets/fonts/Roboto/ROBOTOMONO-LIGHT.TTF
+        - asset: assets/fonts/Roboto/ROBOTOMONO-MEDIUM.TTF
+        - asset: assets/fonts/Roboto/ROBOTOMONO-REGULAR.TTF
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

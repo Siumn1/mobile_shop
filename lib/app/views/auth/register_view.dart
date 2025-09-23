@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/register_controller.dart';
+
+import '../../models/user.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -10,6 +15,10 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  final RegisterController regController = Get.put(RegisterController());
+
+  // final _emailCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +67,7 @@ class _RegisterViewState extends State<RegisterView> {
                         borderSide: BorderSide.none,
                       ),
                     ),
+                    onChanged: (value) => regController.email.value = value,
                   ),
                 ),
                 SizedBox(height: 20),
@@ -65,8 +75,9 @@ class _RegisterViewState extends State<RegisterView> {
                   // margin: EdgeInsets.fromLTRB(10, 20, 10, 0),
                   width: 300,
                   child: TextFormField(
+                    onChanged: (value) => regController.password.value = value,
                     decoration: InputDecoration(
-                      hintText: 'Почта',
+                      hintText: 'Пароль',
                       fillColor: Color.fromARGB(255, 225, 225, 225),
                       filled: true,
                       border: OutlineInputBorder(
@@ -81,7 +92,7 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
                 SizedBox(height: 20),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => regController.register(),
                   style: TextButton.styleFrom(
                     minimumSize: Size(300, 80),
                     shape: RoundedRectangleBorder(
