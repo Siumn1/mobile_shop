@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_test_1/app/views/auth/login_view.dart';
 import 'package:flutter_application_test_1/app/views/auth/register_view.dart';
-
 import 'package:get/get.dart';
 
-class AuthView extends StatelessWidget {
+import '../../controllers/auth_controller.dart';
+
+import '../../models/user.dart';
+
+class AuthView extends StatefulWidget {
   const AuthView({super.key});
 
+  @override
+  State<AuthView> createState() => _AuthViewState();
+}
+
+class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +49,7 @@ class AuthView extends StatelessWidget {
           SizedBox(height: 50),
 
           TextButton(
-            onPressed: () {
-              Get.to(LoginView());
-            },
+            onPressed: () => Get.to(LoginView()),
 
             style: TextButton.styleFrom(
               minimumSize: Size(300, 50),
@@ -54,9 +62,7 @@ class AuthView extends StatelessWidget {
           ),
           SizedBox(height: 20),
           TextButton(
-            onPressed: () {
-              Get.to(RegisterView());
-            },
+            onPressed: () => Get.to(RegisterView()),
 
             style: TextButton.styleFrom(
               minimumSize: Size(300, 50),

@@ -3,6 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/auth_controller.dart';
+
+import '../../models/user.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
@@ -11,6 +15,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +64,7 @@ class _LoginViewState extends State<LoginView> {
                         borderSide: BorderSide.none,
                       ),
                     ),
+                    onChanged: (value) => authController.email.value = value,
                   ),
                 ),
                 SizedBox(height: 20),
@@ -78,11 +84,12 @@ class _LoginViewState extends State<LoginView> {
                         //static const BorderSide none = BorderSide(color: Colors.transparent, width: 0);
                       ),
                     ),
+                    onChanged: (value) => authController.password.value = value,
                   ),
                 ),
                 SizedBox(height: 20),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => authController.login(),
                   style: TextButton.styleFrom(
                     minimumSize: Size(300, 80),
                     shape: RoundedRectangleBorder(
@@ -91,13 +98,13 @@ class _LoginViewState extends State<LoginView> {
                     backgroundColor: Color(0xFFB3E0CC),
                   ),
                   child: Text(
-                    'Зарегистрироваться',
+                    'Авторизироваться',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Нажимая на кнопку "Зарегестрироваться", вы соглашаетесь с Политикой конфиденциальности и даете согласие на обработку ваших персональных данных',
+                  'Нажимая на кнопку "Авторизироваться", вы соглашаетесь с Политикой конфиденциальности и даете согласие на обработку ваших персональных данных',
                   style: TextStyle(fontSize: 9),
                   textAlign: TextAlign.center,
                 ),

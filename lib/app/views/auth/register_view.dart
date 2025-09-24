@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/register_controller.dart';
+import '../../controllers/auth_controller.dart';
 
 import '../../models/user.dart';
 
@@ -15,7 +15,7 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  final RegisterController regController = Get.put(RegisterController());
+  final AuthController authController = Get.put(AuthController());
 
   // final _emailCtrl = TextEditingController();
 
@@ -67,7 +67,7 @@ class _RegisterViewState extends State<RegisterView> {
                         borderSide: BorderSide.none,
                       ),
                     ),
-                    onChanged: (value) => regController.email.value = value,
+                    onChanged: (value) => authController.email.value = value,
                   ),
                 ),
                 SizedBox(height: 20),
@@ -75,7 +75,7 @@ class _RegisterViewState extends State<RegisterView> {
                   // margin: EdgeInsets.fromLTRB(10, 20, 10, 0),
                   width: 300,
                   child: TextFormField(
-                    onChanged: (value) => regController.password.value = value,
+                    onChanged: (value) => authController.password.value = value,
                     decoration: InputDecoration(
                       hintText: 'Пароль',
                       fillColor: Color.fromARGB(255, 225, 225, 225),
@@ -92,7 +92,7 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
                 SizedBox(height: 20),
                 TextButton(
-                  onPressed: () => regController.register(),
+                  onPressed: () => authController.register(),
                   style: TextButton.styleFrom(
                     minimumSize: Size(300, 80),
                     shape: RoundedRectangleBorder(
